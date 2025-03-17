@@ -6,38 +6,41 @@
 //
 
 class BaseballGame {
-    var printMessage: PrintMessageProtocol // 프로토콜
-    var randomNumber: RandomNumberGenerator
-    var userinput: UserInput
-    var checkAnswer: CheckAnswer
+    var message: PrintMessageProtocol // 프로토콜
+    var randomNumber: RandomNumberGeneratable
+    var userInput: UserInputProtocol
+    var checkAnswer: CheckAnswerProtocol
     
-    init() {
-        self.printMessage = PrintMessage()
-        self.randomNumber = RandomNumberGenerator()
-        self.userinput = UserInput()
-        self.checkAnswer = CheckAnswer()
+    init(message: PrintMessageProtocol,
+         randomNumber: RandomNumberGeneratable,
+         userInput: UserInputProtocol,
+         checkAnswer: CheckAnswerProtocol) {
+        self.message = message
+        self.randomNumber = randomNumber
+        self.userInput = userInput
+        self.checkAnswer = checkAnswer
     }
 
     func startGame() {
-        printMessage.start() // 게임 시작 메시지 출력
+        message.start() // 게임 시작 메시지 출력
         
         let gameAnswer = randomNumber.randomNumberGenerator()
 
         while true {
-            printMessage.input() // 사용자 입력 메시지 출력
+            message.input() // 사용자 입력 메시지 출력
 
-            let userAnswer = userinput.getUserInput()
+            let userAnswer = userInput.getUserInput()
 
             let gameResult = checkAnswer.check(gameAnswer, userAnswer)
             
             if gameResult.strike == 3 {
-                printMessage.success()
+                message.success()
                 break
             } else if gameResult.strike == 0 && gameResult.ball == 0 {
-                printMessage.lose()
+                message.lose()
             } else {
                 //print("\(strike)스트라이크 \(ball)볼")
-                printMessage.resultMessage(strike: gameResult.strike, ball: gameResult.ball)
+                message.resultMessage(strike: gameResult.strike, ball: gameResult.ball)
             }
             print("") // 줄바꿈
         }

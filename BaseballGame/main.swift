@@ -13,6 +13,9 @@ import Foundation
 // 숫자는 맞지만 자리는 틀리다 : 볼
 
 
-let game: BaseballGame = BaseballGame()
+let game: BaseballGame = BaseballGame(message: PrintMessage(),
+                                      randomNumber: RandomNumberGenerator(),
+                                      userInput: UserInput(),
+                                      checkAnswer: CheckAnswer())
 
 game.startGame()

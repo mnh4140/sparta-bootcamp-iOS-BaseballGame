@@ -4,8 +4,11 @@
 //
 //  Created by NH on 3/17/25.
 //
+protocol UserInputProtocol {
+    func getUserInput() -> [Int]
+}
 
-struct UserInput {
+struct UserInput: UserInputProtocol {
     
     func getUserInput() -> [Int] {
         

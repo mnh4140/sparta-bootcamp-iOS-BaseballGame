@@ -4,9 +4,11 @@
 //
 //  Created by NH on 3/17/25.
 //
-
+protocol RandomNumberGeneratable {
+    func randomNumberGenerator() -> [Int]
+}
 //
-struct RandomNumberGenerator {
+struct RandomNumberGenerator: RandomNumberGeneratable {
     /**
      중복되지 않는 서로 다른 숫자 랜덤 생성 함수
 

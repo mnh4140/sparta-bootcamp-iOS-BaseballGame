@@ -4,8 +4,11 @@
 //
 //  Created by NH on 3/17/25.
 //
+protocol CheckAnswerProtocol {
+    func check(_ userInput: [Int], _ randomNumber: [Int]) -> (strike: Int, ball: Int)
+}
 
-struct CheckAnswer {
+struct CheckAnswer: CheckAnswerProtocol {
     func check(_ userInput: [Int], _ randomNumber: [Int]) -> (strike: Int, ball: Int) {
         var strikeCount = 0
         var ballCount = 0
