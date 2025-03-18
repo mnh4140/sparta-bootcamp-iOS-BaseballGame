@@ -6,7 +6,7 @@
 //
 
 class BaseballGame {
-    var message: PrintMessageProtocol // 프로토콜
+    var message: PrintMessageProtocol
     var randomNumber: RandomNumberGeneratable
     var userInput: UserInputProtocol
     var checkAnswer: CheckAnswerProtocol
@@ -20,6 +20,13 @@ class BaseballGame {
         self.userInput = userInput
         self.checkAnswer = checkAnswer
     }
+    
+//    init() {
+//        self.message = PrintMessage()
+//        self.randomNumber = RandomNumberGenerator()
+//        self.userInput = UserInput()
+//        self.checkAnswer = CheckAnswer()
+//    }
 
     func startGame() {
         message.start() // 게임 시작 메시지 출력
