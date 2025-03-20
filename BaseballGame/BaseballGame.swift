@@ -40,6 +40,7 @@ class BaseballGame {
                 print("< 게임 기록 보기 >")
             case "3":
                 print("Bye!")
+                isQuit = false // 반복문 종료
             default:
                 print("올바른 번호를 입력해주세요.")
             }
