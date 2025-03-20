@@ -20,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		EDF626E02D87BFFD00C205C3 /* BaseballGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BaseballGame; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF6274D2D8BE50600C205C3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -44,6 +45,7 @@
 		EDF626D72D87BFFD00C205C3 = {
 			isa = PBXGroup;
 			children = (
+				EDF6274D2D8BE50600C205C3 /* README.md */,
 				EDF626E22D87BFFD00C205C3 /* BaseballGame */,
 				EDF626E12D87BFFD00C205C3 /* Products */,
 			);
