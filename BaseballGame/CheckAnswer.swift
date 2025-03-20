@@ -8,6 +8,7 @@ protocol CheckAnswerProtocol {
     func check(_ userInput: [Int], _ randomNumber: [Int]) -> (strike: Int, ball: Int)
 }
 
+// 사용자에게 입력받은 숫자 정답과 비교
 struct CheckAnswer: CheckAnswerProtocol {
     func check(_ userInput: [Int], _ randomNumber: [Int]) -> (strike: Int, ball: Int) {
         var strikeCount = 0
@@ -23,6 +24,6 @@ struct CheckAnswer: CheckAnswerProtocol {
             }
         }
         
-        return (strikeCount, ballCount)
+        return (strikeCount, ballCount) // 스트라이크 횟수와 볼 횟수를 반환
     }
 }

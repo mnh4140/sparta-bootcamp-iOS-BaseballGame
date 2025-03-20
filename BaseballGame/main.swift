@@ -12,9 +12,14 @@ import Foundation
 // 자리과 숫자가 맞다 : 스트라이크
 // 숫자는 맞지만 자리는 틀리다 : 볼
 
-
+// 인스턴스 생성
 let game: BaseballGame = BaseballGame(message: PrintMessage(),
                                       randomNumber: RandomNumberGenerator(),
                                       userInput: UserInput(),
+                                      checkAnswer: CheckAnswer(),
+                                      log: Log())
+
 game.mainMenu() // 게임 시작
+
+
 

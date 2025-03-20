@@ -10,15 +10,19 @@ class BaseballGame {
     var randomNumber: RandomNumberGeneratable
     var userInput: UserInputProtocol
     var checkAnswer: CheckAnswerProtocol
+    var log: LogProtocol
     
+    // 초기화
     init(message: PrintMessageProtocol,
          randomNumber: RandomNumberGeneratable,
          userInput: UserInputProtocol,
-         checkAnswer: CheckAnswerProtocol) {
+         checkAnswer: CheckAnswerProtocol,
+         log: LogProtocol) {
         self.message = message
         self.randomNumber = randomNumber
         self.userInput = userInput
         self.checkAnswer = checkAnswer
+        self.log = log
     }
 
     func mainMenu() {
@@ -31,6 +35,7 @@ class BaseballGame {
             
             switch readLine() ?? "" {
             case "1":
+                var tryCount = startGame() // 게임 시작 매소드 실행
                 
                 gameCount += 1 // 개임 횟수 증가
 
@@ -60,21 +65,26 @@ class BaseballGame {
 
         while true {
             message.input() // 사용자 입력 메시지 출력
+            
+            tryCount += 1 // 시도 횟수 증가
 
-            let userAnswer = userInput.getUserInput()
+            let userAnswer = userInput.getUserInput() // 사용자에게 숫자 입력 받기
 
-            let gameResult = checkAnswer.check(gameAnswer, userAnswer)
+            let gameResult = checkAnswer.check(gameAnswer, userAnswer) // 입력받은 숫자 정답 비교
             
             if gameResult.strike == 3 {
-                message.success()
-                break
+                message.success() // 정답 메시지 출력
+                break // 반복문 종료
             } else if gameResult.strike == 0 && gameResult.ball == 0 {
-                message.lose()
+                message.lose() // 모든 숫자를 못맞췄을 때 메시지 출력
             } else {
+                // 스트라이크 볼 출력
                 message.resultMessage(strike: gameResult.strike, ball: gameResult.ball)
             }
             print("") // 줄바꿈
         }
+        
+        return tryCount // 시도 횟수 반환
     }
 }
 

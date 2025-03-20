@@ -8,6 +8,7 @@ protocol UserInputProtocol {
     func getUserInput() -> [Int]
 }
 
+// 사용자에게 정답을 입력 받는 기능
 struct UserInput: UserInputProtocol {
     
     func getUserInput() -> [Int] {
