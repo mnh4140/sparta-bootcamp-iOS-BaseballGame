@@ -34,10 +34,12 @@ class BaseballGame {
                 
                 gameCount += 1 // 개임 횟수 증가
 
+                logArray.append(log.gameLog(gameCount, tryCount)) // 게임 로그 저장
                 
                 tryCount = 0 // 시도 횟수 초기화
             case "2":
                 print("< 게임 기록 보기 >")
+                message.gameLog(logArray) // 로그 출력
             case "3":
                 print("Bye!")
                 isQuit = false // 반복문 종료
