@@ -16,6 +16,5 @@ import Foundation
 let game: BaseballGame = BaseballGame(message: PrintMessage(),
                                       randomNumber: RandomNumberGenerator(),
                                       userInput: UserInput(),
-                                      checkAnswer: CheckAnswer())
+game.mainMenu() // 게임 시작
 
-game.startGame()

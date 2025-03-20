@@ -20,16 +20,38 @@ class BaseballGame {
         self.userInput = userInput
         self.checkAnswer = checkAnswer
     }
-    
-//    init() {
-//        self.message = PrintMessage()
-//        self.randomNumber = RandomNumberGenerator()
-//        self.userInput = UserInput()
-//        self.checkAnswer = CheckAnswer()
-//    }
 
-    func startGame() {
+    func mainMenu() {
+        var isQuit: Bool = true // 게임 반복 여부 저장 변수
+        var gameCount: Int = 0 // 게임 횟수
+        var logArray: [String] = []
+        
+        while isQuit {
+            message.menu() // 메인메뉴 선택 안내 메시지 출력
+            
+            switch readLine() ?? "" {
+            case "1":
+                
+                gameCount += 1 // 개임 횟수 증가
+
+                
+                tryCount = 0 // 시도 횟수 초기화
+            case "2":
+                print("< 게임 기록 보기 >")
+            case "3":
+                print("Bye!")
+            default:
+                print("올바른 번호를 입력해주세요.")
+            }
+        }
+    }
+    
+
+
+    func startGame() -> Int {
         message.start() // 게임 시작 메시지 출력
+
+        var tryCount = 0 // 시도 횟수 저장 변수
         
         let gameAnswer = randomNumber.randomNumberGenerator()
 
@@ -46,7 +68,6 @@ class BaseballGame {
             } else if gameResult.strike == 0 && gameResult.ball == 0 {
                 message.lose()
             } else {
-                //print("\(strike)스트라이크 \(ball)볼")
                 message.resultMessage(strike: gameResult.strike, ball: gameResult.ball)
             }
             print("") // 줄바꿈
